@@ -1,35 +1,33 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+import React from 'react'
+import { Link, NavLink, useHistory } from 'react-router-dom'
+import { path } from '../TestReactRouter'
 
-export default class Header extends Component {
-  constructor(props) {
-    // ke thua props
-    super(props)
-    // state la object chua data cua component
-    this.state = {
-      title: 'Header',
-      number: 0
-    }
-  }
-  click = () => {
-    this.setState(prevState => ({
-      number: prevState.number + 3
-    }))
-  }
-  render() {
-    console.log(this.props)
-    return (
-      <header>
-        <h1>{this.state.title}</h1>
-        {/*  this.click = truyen function  */}
-        {/*  this.click() = goi function ❌ */}
-        <button onClick={this.click}>Click {this.state.number}</button>
-      </header>
-    )
-  }
+const Header = () => {
+  const history = useHistory()
+  return (
+    <div>
+      <ul>
+        <li>
+          <Link to={path.register}>Register</Link>
+        </li>
+        <li>
+          <Link to={path.student}>Student</Link>
+        </li>
+        <li>
+          <NavLink to={path.register}>Register Nav</NavLink>
+        </li>
+        <li>
+          <NavLink to={path.student}>Student Nav</NavLink>
+        </li>
+        <li>
+          <NavLink to={'/profile'}>Profile</NavLink>
+        </li>
+        <button onClick={() => history.push('/profile')}>Go to Profile</button>
+        <button onClick={() => history.goBack('/profile')}>Go Back</button>
+        <button onClick={() => history.goForward('/profile')}>Go Forward</button>
+      </ul>
+    </div>
+  )
 }
 
-Header.propTypes = {
-  user: PropTypes.object,
-  title: PropTypes.string.isRequired
-}
+export default Header
