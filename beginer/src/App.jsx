@@ -8,6 +8,7 @@ import Profile from './components/Profile'
 import User from './components/User'
 import UserClass from './components/UserClass'
 import ExampleReducer from './components/ExampleReducer'
+import TestReactRouter from './TestReactRouter'
 
 function App() {
   const user = {
@@ -23,7 +24,9 @@ function App() {
       {/* <Profile /> */}
       {/* <User /> */}
       {/* <UserClass /> */}
-      <ExampleReducer />
+      {/* <ExampleReducer /> */}
+      {/* <TestReactRouter /> */}
+      <Counter />
     </div>
   )
 }
